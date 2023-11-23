@@ -14,9 +14,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@moxy/next-layout": "^2.2.3",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.5",
     "glob": "^10.2.3",
     "next": "^13.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
+    "sed": "^0.0.2",
+    "swr": "^2.2.4"
   }
 }
