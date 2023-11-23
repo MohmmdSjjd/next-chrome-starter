@@ -20,6 +20,9 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import { Spinner } from '@chakra-ui/react'
+import axios from 'axios';
+import useSWR from 'swr';
+import { useEffect } from 'react';
 
 
 const Links = ['Dashboard', 'Projects', 'Team']
@@ -43,7 +46,10 @@ const NavLink = (props) => {
 }
 export default function New({ navigateToPage }) {
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const fetcher = (key) => localStorage.getItem(key)
+
+  const { data, error } = useSWR("token", fetcher);
+
 
   return (
     <>

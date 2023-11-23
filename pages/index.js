@@ -9,44 +9,42 @@ export default function Home() {
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    if (token)
+    if (token) {
+      console.log("new from first")
       setActivePage("new")
-    else
+    }
+    else {
+      console.log("index from first")
       setActivePage("index")
+    }
   }, [])
 
 
-  const baseURL = "https://api.d.aiengines.ir"
+  // const baseURL = "https://api.d.aiengines.ir"
 
-  const postData = async (url, { arg }) => {
-    const res = await axios.post(baseURL + url, arg, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-    if (res.status == 200) {
-      if (res.data?.token) {
-        localStorage.setItem("token", JSON.stringify(res.data.token))
-        console.log(res)
-        navigateToPage("new")
-        return
-      }
-      navigateToPage("index")
-    }
-    if (res.status == 422)
-      console.log("it not proccessable")
-    return res
-  }
+  // const postData = async (url, { arg }) => {
+  //   const res = await axios.post(baseURL + url, arg, {
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     }
+  //   })
+  //   if (res.status == 200) {
+  //     if (res.data?.token) {
+  //       localStorage.setItem("token", JSON.stringify(res.data.token))
+  //       console.log(res)
+  //       navigateToPage("new")
+  //       return
+  //     }
+  //     navigateToPage("index")
+  //   }
+  //   if (res.status == 422)
+  //     console.log("it not proccessable")
+  //   return res
+  // }
 
-  const { trigger, isMutating } = useSWRMutation("/twitter_account/users/login", postData);
-
-
-
-  // useEffect(()=>{
-  //   trigger({ username: "mission_manager", password:"mission_manager"})
-  // },[])
+  // const { trigger, isMutating } = useSWRMutation("/twitter_account/users/login", postData);
 
 
   const navigateToPage = (page) => {

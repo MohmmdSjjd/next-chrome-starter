@@ -33,7 +33,7 @@ export default function New({ navigateToPage }) {
     if (res.status == 200) {
       if (res.data?.token) {
         localStorage.setItem("token", JSON.stringify(res.data.token))
-        console.log(res)
+        // console.log(res)
         navigateToPage("new")
         return
       }
